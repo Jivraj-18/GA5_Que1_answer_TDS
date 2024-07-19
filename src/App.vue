@@ -55,60 +55,24 @@ export default {
       console.log(props)
       try {
         // Uncomment and configure the fetch request if needed
-        // const response = await fetch(props.proxyUrl, {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //     'Authorization': `Bearer ${apiToken.value}`
-        //   },
-        //   body: JSON.stringify({ question: question.value })
-        // });
+         const response = await fetch(props.proxyUrl, {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+             'Authorization': `Bearer ${apiToken.value}`
+           },
+           body: JSON.stringify({ question: question.value })
+         });
 
-        // if (!response.ok) {
-        //   throw new Error('Failed to fetch data');
-        // }
+         if (!response.ok) {
+           throw new Error('Failed to fetch data');
+         }
 
-        // const data = await response.json();
-        // const models = data.data;
+         const data = await response.json();
+         const models = data.data;
 
         // Use hardcoded models for demonstration
-        const models = [
-          { "id": "gpt-3.5-turbo-0613", "created": 1686587434 },
-          { "id": "whisper-1", "created": 1677532384 },
-          { "id": "gpt-4o", "created": 1715367049 },
-          { "id": "dall-e-2", "created": 1698798177 },
-          { "id": "gpt-3.5-turbo-16k", "created": 1683758102 },
-          { "id": "tts-1-hd-1106", "created": 1699053533 },
-          { "id": "gpt-4o-2024-05-13", "created": 1715368132 },
-          { "id": "tts-1-hd", "created": 1699046015 },
-          { "id": "gpt-4-turbo-2024-04-09", "created": 1712601677 },
-          { "id": "gpt-4-0125-preview", "created": 1706037612 },
-          { "id": "gpt-4-turbo-preview", "created": 1706037777 },
-          { "id": "gpt-4-turbo", "created": 1712361441 },
-          { "id": "gpt-3.5-turbo-instruct-0914", "created": 1694122472 },
-          { "id": "gpt-3.5-turbo", "created": 1677610602 },
-          { "id": "gpt-3.5-turbo-instruct", "created": 1692901427 },
-          { "id": "text-embedding-3-small", "created": 1705948997 },
-          { "id": "tts-1", "created": 1681940951 },
-          { "id": "text-embedding-3-large", "created": 1705953180 },
-          { "id": "gpt-4-1106-preview", "created": 1698957206 },
-          { "id": "babbage-002", "created": 1692634615 },
-          { "id": "gpt-3.5-turbo-0125", "created": 1706048358 },
-          { "id": "gpt-4-0613", "created": 1686588896 },
-          { "id": "tts-1-1106", "created": 1699053241 },
-          { "id": "gpt-4", "created": 1687882411 },
-          { "id": "gpt-4-0314", "created": 1687882410 },
-          { "id": "dall-e-3", "created": 1698785189 },
-          { "id": "text-embedding-ada-002", "created": 1671217299 },
-          { "id": "gpt-4-32k-0314", "created": 1687979321 },
-          { "id": "davinci-002", "created": 1692634301 },
-          { "id": "gpt-4-vision-preview", "created": 1698894917 },
-          { "id": "gpt-4-1106-vision-preview", "created": 1711473033 },
-          { "id": "gpt-3.5-turbo-1106", "created": 1698959748 },
-          { "id": "gpt-3.5-turbo-16k-0613", "created": 1685474247 },
-          { "id": "gpt-3.5-turbo-0301", "created": 1677649963 }
-        ];
-
+        
         const params = extractParameters(question.value);
 
         // Filter models created before the specified date and sort them
