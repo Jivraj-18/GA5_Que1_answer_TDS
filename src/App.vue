@@ -1,6 +1,7 @@
 <template>
   <div class="proxy-query-container">
     <h2>Proxy Query</h2>
+    <h1>added new line</h1>
     <form @submit.prevent="submitQuery">
       <div class="input-group">
         <label for="apiToken">API Token:</label>
